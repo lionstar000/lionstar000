@@ -1,0 +1,25 @@
+#include <Arduino.h>
+#include <stdlib.h>  // For random number generation
+
+void setup() {
+  Serial.begin(115200);
+  randomSeed(analogRead(0)); // Seed the random number generator
+}
+
+void loop() {
+  // Simulate independent thinking by making decisions based on random choices
+  
+  // Generate a random number between 0 and 1
+  float decision = random(1000) / 1000.0;
+  
+  // Make a decision based on the random value
+  if (decision < 0.3) {
+    Serial.println("I've decided to explore a new idea.");
+  } else if (decision < 0.6) {
+    Serial.println("I think I should gather more information.");
+  } else {
+    Serial.println("I'll take some time to reflect on my thoughts.");
+  }
+  
+  delay(3000); // Delay before making the next decision
+}
